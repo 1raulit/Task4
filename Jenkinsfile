@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/1raulit/Task4.git', credentialsId: 'github-token'
+                git url: 'https://github.com/1raulit/Task4.git', credentialsId: "github-token"
             }
         }
 
