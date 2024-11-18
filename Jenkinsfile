@@ -4,29 +4,35 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Клонування репозиторію з використанням облікових даних
                 git url: 'https://github.com/1raulit/Task4.git', credentialsId: 'github-token'
             }
         }
         
+        stage('Restore NuGet Packages') {
+            steps {
+                // Восстановление NuGet пакетов
+                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" -t:restore Task4.sln'
+            }
+        }
+
         stage('Build') {
             steps {
-                // Збірка проекту з використанням MSBuild з правильним екрануванням
-                bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe\" Task4.sln /t:Build /p:Configuration=Release"
+                // Сборка проекта
+                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" Task4.sln /t:Build /p:Configuration=Release'
             }
         }
 
         stage('Test') {
             steps {
-                // Запуск тестів з використанням Google Test
-                bat "x64\\Release\\Task4.exe --gtest_output=xml:x64\\Release\\Task4_report.xml"
+                // Запуск тестов
+                bat 'x64\\Release\\Task4.exe --gtest_output=xml:x64\\Release\\Task4_report.xml'
             }
         }
     }
 
     post {
         always {
-            // Публікація результатів тестів у форматі JUnit
+            // Публикация результатов тестов
             junit 'x64/Release/Task4_report.xml'
         }
     }
