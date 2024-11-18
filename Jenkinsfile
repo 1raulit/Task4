@@ -5,14 +5,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Клонування репозиторію з використанням облікових даних
-                git url: 'https://github.com/1raulit/Task4.git', credentialsId: 'github-token'
+                git url: 'https://github.com/1raulit/Task4.git', credentialsId: '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'
             }
         }
         
         stage('Build') {
             steps {
-                // Збірка проекту з використанням MSBuild
-                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" Task4.sln /t:Build /p:Configuration=Release'
+                // Збірка проекту з використанням MSBuild з правильним екрануванням
+                bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe\" Task4.sln /t:Build /p:Configuration=Release"
             }
         }
 
