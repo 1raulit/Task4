@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Клонування репозиторію з використанням облікових даних
-                git url: 'https://github.com/1raulit/Task4.git', credentialsId: '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'
+                git url: 'https://github.com/1raulit/Task4.git', credentialsId: 'github-token'
             }
         }
         
