@@ -11,14 +11,14 @@ pipeline {
         stage('Build') {
             steps {
                 // Сборка проекта
-                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" Task4.sln /t:Build /p:Configuration=Debug'
+                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" Task4.sln /t:Build /p:Configuration=Release'
             }
         }
 
         stage('Test') {
             steps {
                 // Запуск тестов
-                bat 'x64\\Debug\\Task4.exe --gtest_output=xml:x64\\Debug\\Task4_report.xml'
+                bat 'x64\\Release\\Task4.exe --gtest_output=xml:x64\\Release\\Task4_report.xml'
             }
         }
     }
@@ -26,7 +26,7 @@ pipeline {
     post {
         always {
             // Публикация результатов тестов
-            junit 'x64/Debug/Task4_report.xml'
+            junit 'x64/Release/Task4_report.xml'
         }
     }
 }
