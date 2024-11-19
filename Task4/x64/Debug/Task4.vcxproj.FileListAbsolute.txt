@@ -1,3 +1,0 @@
-G:\KPI\sem5\Coursework\Task4\x64\Debug\gtest.pdb
-G:\KPI\sem5\Coursework\Task4\x64\Debug\gtest_main.pdb
-G:\KPI\sem5\Coursework\Task4\Task4\x64\Debug\Task4.vcxproj.Up2Date

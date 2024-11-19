@@ -1,4 +1,0 @@
-﻿  pch.cpp
-  test.cpp
-G:\KPI\sem5\Coursework\Task4\stringProcessor.h(19,34): warning C4114: Множественное использование одного и того же квалификатора типа.
-  Task4.vcxproj -> G:\KPI\sem5\Coursework\Task4\x64\Debug\Task4.exe
